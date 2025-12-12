@@ -1,0 +1,42 @@
+@use "../variables" as *;
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: $color-bg-primary;
+  font-family: "TT Lakes";
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.body--event {
+  background-color: $color-bg-white;
+  overflow: hidden;
+}
+
+.main__wrapper {
+  display: flex;
+}
+
+.main__content {
+  flex-grow: 1;
+  min-width: 0;
+
+  &--blured {
+    opacity: 0.05;
+  }
+}
+
+.title {
+  padding: 16px 16px 16px 0;
+  background: linear-gradient(270deg, $color-bg-primary 0%, $color-bg-white 100%);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+}
+

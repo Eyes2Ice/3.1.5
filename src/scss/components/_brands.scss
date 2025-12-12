@@ -1,0 +1,100 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.brands {
+  &__inner {
+    padding: 0 0 24px 16px;
+    border-top: 1px solid $color-border-green-light;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__slider {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      $color-bg-white 0%,
+      $color-bg-white calc(100% - 30px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      $color-bg-white 0%,
+      $color-bg-white calc(100% - 30px),
+      transparent 100%
+    );
+  }
+
+  &__item {
+    max-width: 240px;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__link {
+    @include flex-between;
+    height: 72px;
+    padding: 16px;
+    background-color: $color-bg-white;
+    border: 1px solid $color-border-light;
+    border-radius: 6px;
+    @include transition;
+
+    svg {
+      @include transition;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $color-accent;
+      box-shadow: inset 0px 0px 10px 0px $color-shadow-accent;
+
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+    font-size: 16px;
+    font-weight: 500;
+    @include text-common;
+    @include transition;
+
+    img {
+      @include transition;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: $color-accent;
+    }
+
+    &--active img {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.swiper-pagination {
+  position: static;
+  margin-top: 16px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin-inline: 6px !important;
+  background-color: $color-pagination;
+  opacity: 1;
+
+  &-active {
+    background-color: $color-pagination-active;
+  }
+}
+

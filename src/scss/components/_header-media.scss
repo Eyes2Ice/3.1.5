@@ -1,0 +1,49 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@media (width >= 768px) {
+  .header {
+    &__inner {
+      padding-inline: 24px;
+    }
+
+    &__brand {
+      gap: 20px;
+    }
+
+    &__logo {
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        @include divider($color: $color-border-light);
+        margin-right: 20px;
+      }
+    }
+
+    &-nav {
+      &__item {
+        &--tablet {
+          display: block;
+
+          &:nth-child(3) {
+            @include flex-center;
+
+            &::after {
+              @include divider($color: $color-border-light);
+              margin-inline: 20px 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 1120px) {
+  .header {
+    display: none;
+  }
+}
+

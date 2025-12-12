@@ -1,0 +1,48 @@
+
+// Transition mixin
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Scale hover effect
+@mixin scale-hover($scale: 1.2) {
+  &:focus,
+  &:active,
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+// Flex center between
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Common text properties
+@mixin text-common {
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+// Blur effect
+@mixin blur {
+  opacity: 0.05;
+}
+
+@mixin divider($width: 2px, $height: 32px, $color: #eaeaea) {
+  content: "";
+  display: block;
+  width: $width;
+  height: $height;
+  border-radius: 1px;
+  background-color: $color;
+}
+

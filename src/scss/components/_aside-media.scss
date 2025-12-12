@@ -1,0 +1,67 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@media (width >= 360px) {
+  .main__aside {
+    padding: 18px 24px 32px;
+    margin-bottom: -90px;
+  }
+
+  .main-nav .current::before {
+    left: -24px;
+  }
+}
+
+@media (width >= 768px) {
+  .aside {
+    &__body {
+      gap: 268px;
+    }
+
+    &__number {
+      margin-bottom: 40px;
+    }
+  }
+
+  .main-nav {
+    gap: 32px;
+  }
+}
+
+@media (width >= 1120px) {
+  .main__aside {
+    display: block;
+    box-shadow: none;
+  }
+
+  .aside {
+    &__header .burger-icon {
+      display: none;
+    }
+
+    &__logo {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (width >= 1440px) {
+  .main__aside {
+    padding: 30px 29px 0 22px;
+  }
+
+  .aside {
+    &__body {
+      gap: 241px;
+    }
+  }
+
+  .main-nav {
+    gap: 28px;
+
+    .current::before {
+      left: -22px;
+    }
+  }
+}
+

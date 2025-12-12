@@ -1,0 +1,64 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.header {
+  &--blured {
+    @include blur;
+  }
+
+  &__inner {
+    @include flex-between;
+    padding: 18px 16px;
+    background-color: $color-bg-white;
+  }
+
+  &__brand {
+    @include flex-center;
+    gap: 16px;
+  }
+
+  &__logo {
+    @include flex-center;
+
+    &::after {
+      @include divider($color: $color-border-light);
+      margin-left: 16px;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    gap: 16px;
+
+    &__item {
+      &--tablet {
+        display: none;
+      }
+    }
+
+    &__btn {
+      @include transition;
+      @include scale-hover;
+    }
+  }
+}
+
+.burger-icon {
+  @include transition;
+  @include scale-hover;
+}
+
+.logo {
+  &__svg path {
+    @include transition(all, 0.5s);
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    .logo__svg path {
+      fill: $color-accent;
+    }
+  }
+}
+

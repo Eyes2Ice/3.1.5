@@ -1,0 +1,145 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.main__aside {
+  display: none;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  width: 320px;
+  height: 100vh;
+  padding: 18px 16px 32px;
+  background-color: $color-bg-white;
+  @include transition;
+  box-shadow: 16px 0 52px 0 $color-shadow;
+
+  &.aside--visible {
+    display: block;
+    transform: translateY(-88px);
+  }
+}
+
+.aside {
+  &__header {
+    @include flex-center;
+    margin-bottom: 22px;
+  }
+
+  &__logo {
+    margin-left: 16px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__email {
+    margin-bottom: 12px;
+    @include transition;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(1.1);
+      transform-origin: top left;
+      color: $color-accent;
+    }
+  }
+
+  &__number {
+    margin-bottom: 8px;
+    @include transition;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    letter-spacing: -0.03em;
+
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(1.1);
+      transform-origin: top left;
+      color: $color-accent;
+    }
+  }
+
+  &__langs {
+    display: flex;
+    gap: 7px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+
+    button {
+      @include transition;
+
+      &:focus,
+      &:hover,
+      &:active {
+        color: $color-accent;
+      }
+    }
+
+    .current button {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.search-icon {
+  margin-left: auto;
+  @include transition;
+  @include scale-hover;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+
+  &__link {
+    &:focus,
+    &:hover,
+    &:active {
+      color: $color-text-secondary;
+    }
+  }
+
+  .current {
+    position: relative;
+    @include flex-center;
+    color: $color-text-secondary;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      display: block;
+      width: 4px;
+      height: 32px;
+      background-image: url("../assets/img/icons/highlight-small.svg");
+    }
+  }
+}
+
+.aside-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  &__btn {
+    @include transition;
+    @include scale-hover;
+  }
+}
+

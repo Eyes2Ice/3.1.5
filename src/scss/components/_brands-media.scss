@@ -1,0 +1,47 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@media (width >= 768px) {
+  .brands {
+    &__inner {
+      padding: 0 24px 32px;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+
+    &__slider {
+      mask-image: none;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin-bottom: 24px;
+    }
+
+    &__item {
+      max-width: 224px;
+    }
+
+    &__link {
+      &:hover,
+      &:focus {
+        svg {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    &__btn {
+      display: block;
+    }
+  }
+
+  .swiper-pagination {
+    display: none;
+  }
+}
+
