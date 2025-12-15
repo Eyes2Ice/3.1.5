@@ -1,0 +1,123 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.prices {
+  &__inner {
+    padding-bottom: 40px;
+    border: 1px solid $color-border-green-light;
+  }
+
+  &__title {
+    margin: 0 0 16px 16px;
+  }
+
+  &__slider {
+    margin-left: 8px;
+    mask-image: linear-gradient(
+      to right,
+      #fff 0%,
+      #fff calc(100% - 30px),
+      transparent 100%
+    );
+  }
+
+  &__item {
+    @include flex-column-between;
+    max-width: 260px;
+    height: 200px;
+    padding: 16px;
+    border-radius: 6px;
+    background-color: $color-bg-white;
+
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.29;
+
+    span {
+      font-weight: 500;
+      line-height: 1.14;
+      color: $color-text-secondary;
+    }
+  }
+
+  &__btn {
+    @include flex-between;
+    gap: 8px;
+    align-self: flex-end;
+    height: 32px;
+    padding: 4px 8px 4px 12px;
+    border-radius: 16px;
+    background-color: $color-accent;
+    @include transition;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 2;
+    text-transform: uppercase;
+    color: $color-bg-white;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+
+  &__table {
+    display: none;
+  }
+
+  &__about {
+    margin: 0 16px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01em;
+  }
+
+  &__link {
+    display: block;
+    max-width: 192px;
+    margin-left: 16px;
+    @include text-common;
+    @include transition;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-accent;
+    }
+  }
+}
+
+.price {
+  &__top,
+  &__value,
+  &__term {
+    @include flex-column;
+    gap: 4px;
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 28px;
+  }
+}
+
+.prices__slider {
+  .swiper-pagination {
+    position: static;
+    margin-block: 16px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin-inline: 6px !important;
+    background-color: $color-pagination;
+    opacity: 1;
+
+    &-active {
+      background-color: $color-pagination-active;
+    }
+  }
+}

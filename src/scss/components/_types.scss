@@ -59,7 +59,7 @@
 
 .type {
   &__link {
-    @include column-between;
+    @include flex-column-between;
     height: 160px;
     padding: 16px;
     background-color: $color-bg-white;

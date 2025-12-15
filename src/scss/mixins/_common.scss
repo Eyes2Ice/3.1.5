@@ -25,8 +25,14 @@
   justify-content: space-between;
 }
 
+//Flex column
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 //Flex column between
-@mixin column-between {
+@mixin flex-column-between {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

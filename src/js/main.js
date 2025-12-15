@@ -3,6 +3,11 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+const tabletBreakpoint = window.matchMedia(
+  '(min-width: 768px) and (max-width: 1439px)'
+)
+const desktopBreakpoint = window.matchMedia('(min-width: 1440px)')
+
 document.addEventListener('DOMContentLoaded', () => {
   // Сайдбар
   {
@@ -97,11 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
       breakpoint.addEventListener('change', checkBreakpoint)
     }
   }
-
-  const tabletBreakpoint = window.matchMedia(
-    '(min-width: 768px) and (max-width: 1439px)'
-  )
-  const desktopBreakpoint = window.matchMedia('(min-width: 1440px)')
 
   // Адаптив брендов
   {
@@ -252,4 +252,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   }
+
+  // Сдайдер цены
+  new Swiper('.prices__slider', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+
+    modules: [Pagination, Autoplay],
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+
+    autoplay: {
+      delay: 2000
+    },
+
+    speed: 600,
+
+    pauseOnInteraction: true
+  })
 })

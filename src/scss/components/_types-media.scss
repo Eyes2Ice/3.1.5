@@ -1,9 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-@use '../variables' as *;
-@use '../mixins' as *;
-
 @media (width >= 768px) {
   .types {
     &__inner {

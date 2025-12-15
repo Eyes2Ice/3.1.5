@@ -1,0 +1,113 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+@media (width >= 768px) {
+  .prices {
+    &__inner {
+      padding: 0 24px 47px;
+    }
+
+    &__title {
+      margin: 0;
+      margin-bottom: 31px;
+    }
+
+    &__slider {
+      display: none;
+    }
+
+    &__table {
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .table {
+      width: 100%;
+      border-radius: 6px;
+      border-collapse: collapse;
+      background-color: $color-bg-white;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.29;
+      letter-spacing: 0.01em;
+
+      thead {
+        background-color: $color-bg-primary;
+      }
+
+      th {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.14;
+        color: $color-text-secondary;
+        text-align: start;
+
+        &:first-child {
+          padding-left: 16px;
+        }
+      }
+
+      tr {
+        height: 64px;
+
+        td {
+          border-bottom: 1px solid $color-border-light;
+        }
+
+        &:last-child td {
+          border: none;
+        }
+      }
+
+      &__service {
+        padding-right: 24px;
+        padding-left: 16px;
+      }
+
+      &__price {
+        padding-right: 22px;
+      }
+
+      &__term {
+        padding-right: 20px;
+      }
+
+      &__action {
+        padding-right: 16px;
+      }
+    }
+
+    &__about {
+      max-width: 421px;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+
+    &__link {
+      max-width: none;
+      margin: 0;
+    }
+  }
+}
+
+@media (width >= 1440px) {
+  .prices {
+    &__inner {
+      padding-bottom: 50px;
+    }
+
+    &__table {
+      margin-bottom: 32px;
+    }
+
+    .table {
+      &__price {
+        padding-right: 153px;
+      }
+
+      &__term {
+        padding-right: 111px;
+      }
+    }
+  }
+}
