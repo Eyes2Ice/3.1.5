@@ -98,40 +98,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const tabletBreakpoint = window.matchMedia(
+    '(min-width: 768px) and (max-width: 1439px)'
+  )
+  const desktopBreakpoint = window.matchMedia('(min-width: 1440px)')
+
   // Адаптив брендов
   {
-    const tabletBreakpoint = window.matchMedia(
-      '(min-width: 768px) and (max-width: 1439px)'
-    )
-    const desktopBreakpoint = window.matchMedia('(min-width: 1440px)')
     const brands = document.querySelector('.brands__list')
     const brandsItems = brands.querySelectorAll('.brands__item')
     const brandsButton = document.querySelector('.brands__btn')
     const brandsButtonText = brandsButton.querySelector('span')
 
-    function checkTabletBreakpoint(e) {
-      if (e.matches) {
-        for (let i = 0; i < brandsItems.length; i++) {
-          if (i >= 6) {
-            brandsItems[i].classList.add('brands__item--hidden')
-          }
-        }
-      }
-    }
-    checkTabletBreakpoint(tabletBreakpoint)
-    tabletBreakpoint.addEventListener('change', checkTabletBreakpoint)
+    function hideByViewport() {
+      brandsItems.forEach((item) =>
+        item.classList.remove('brands__item--hidden')
+      )
 
-    function checkDesktopBreakpoint(e) {
-      if (e.matches) {
-        for (let i = 0; i < brandsItems.length; i++) {
-          if (i >= 8) {
-            brandsItems[i].classList.add('brands__item--hidden')
-          }
-        }
+      if (tabletBreakpoint.matches) {
+        brandsItems.forEach((item, index) => {
+          if (index >= 6) item.classList.add('brands__item--hidden')
+        })
+      } else if (desktopBreakpoint.matches) {
+        brandsItems.forEach((item, index) => {
+          if (index >= 8) item.classList.add('brands__item--hidden')
+        })
       }
     }
-    checkDesktopBreakpoint(desktopBreakpoint)
-    desktopBreakpoint.addEventListener('change', checkDesktopBreakpoint)
+
+    hideByViewport()
+
+    function handleBreakpointChange() {
+      if (!brandsButton.classList.contains('brands__btn--active')) {
+        hideByViewport()
+        brandsButtonText.textContent = 'Показать все'
+      }
+    }
+
+    tabletBreakpoint.addEventListener('change', handleBreakpointChange)
+    desktopBreakpoint.addEventListener('change', handleBreakpointChange)
 
     brandsButton.addEventListener('click', function () {
       brandsButton.classList.toggle('brands__btn--active')
@@ -142,19 +147,108 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } else {
         brandsButtonText.textContent = 'Показать все'
-        if (tabletBreakpoint.matches) {
-          for (let i = 0; i < brandsItems.length; i++) {
-            if (i >= 6) {
-              brandsItems[i].classList.add('brands__item--hidden')
-            }
+        hideByViewport()
+      }
+    })
+  }
+
+  // Слайдер виды
+  {
+    let typesSlider = null
+    const breakpoint = window.matchMedia('(max-width: 767px)')
+    function initSwiper() {
+      typesSlider = new Swiper('.types__slider', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+
+        modules: [Pagination, Autoplay],
+
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+
+        breakpoints: {
+          768: {
+            init: 'false'
           }
-        } else if (desktopBreakpoint.matches) {
-          for (let i = 0; i < brandsItems.length; i++) {
-            if (i >= 8) {
-              brandsItems[i].classList.add('brands__item--hidden')
-            }
-          }
+        },
+
+        autoplay: {
+          delay: 2000
+        },
+
+        speed: 600,
+
+        pauseOnInteraction: true
+      })
+    }
+
+    function destroySwiper() {
+      if (!typesSlider) return
+
+      typesSlider.destroy(true, true)
+      typesSlider = null
+    }
+
+    function checkBreakpoint(e) {
+      if (e.matches) {
+        initSwiper()
+      } else {
+        destroySwiper()
+      }
+    }
+
+    checkBreakpoint(breakpoint)
+
+    if (typeof breakpoint.addEventListener === 'function') {
+      breakpoint.addEventListener('change', checkBreakpoint)
+    }
+  }
+
+  // Адаптив видов
+  {
+    const types = document.querySelector('.types__list')
+    const typesItems = types.querySelectorAll('.types__item')
+    const typesButton = document.querySelector('.types__btn')
+    const typesButtonText = typesButton.querySelector('span')
+
+    function hideByViewport() {
+      typesItems.forEach((item) => item.classList.remove('types__item--hidden'))
+
+      if (tabletBreakpoint.matches) {
+        typesItems.forEach((item, index) => {
+          if (index >= 3) item.classList.add('types__item--hidden')
+        })
+      } else if (desktopBreakpoint.matches) {
+        typesItems.forEach((item, index) => {
+          if (index >= 4) item.classList.add('types__item--hidden')
+        })
+      }
+    }
+
+    hideByViewport()
+
+    function handleBreakpointChange() {
+      if (!typesButton.classList.contains('types__btn--active')) {
+        hideByViewport()
+        typesButtonText.textContent = 'Показать все'
+      }
+    }
+
+    tabletBreakpoint.addEventListener('change', handleBreakpointChange)
+    desktopBreakpoint.addEventListener('change', handleBreakpointChange)
+
+    typesButton.addEventListener('click', function () {
+      typesButton.classList.toggle('types__btn--active')
+      if (typesButton.classList.contains('types__btn--active')) {
+        typesButtonText.textContent = 'Скрыть'
+        for (let i = 0; i < typesItems.length; i++) {
+          typesItems[i].classList.remove('types__item--hidden')
         }
+      } else {
+        typesButtonText.textContent = 'Показать все'
+        hideByViewport()
       }
     })
   }

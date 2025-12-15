@@ -51,7 +51,9 @@ const plugins = () => {
     })
   ]
 
-  if (isProd) {
+  // Подключаем анализатор бандла только по флагу, чтобы сборка не падала,
+  // когда порт занят (EADDRINUSE) в CI или на локали.
+  if (isProd && process.env.ANALYZE === 'true') {
     base.push(new BundleAnalyzerPlugin())
   }
 

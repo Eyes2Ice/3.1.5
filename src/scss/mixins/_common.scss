@@ -1,4 +1,3 @@
-
 // Transition mixin
 @mixin transition($property: all, $duration: 0.3s, $timing: ease) {
   transition: $property $duration $timing;
@@ -26,6 +25,13 @@
   justify-content: space-between;
 }
 
+//Flex column between
+@mixin column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 // Common text properties
 @mixin text-common {
   line-height: 1.5;
@@ -38,11 +44,10 @@
 }
 
 @mixin divider($width: 2px, $height: 32px, $color: #eaeaea) {
-  content: "";
+  content: '';
   display: block;
   width: $width;
   height: $height;
   border-radius: 1px;
   background-color: $color;
 }
-

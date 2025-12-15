@@ -1,8 +1,11 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+@use '../variables' as *;
+@use '../mixins' as *;
+
 @media (width >= 768px) {
-  .brands {
+  .types {
     &__inner {
       padding: 0 24px 32px;
     }
@@ -18,7 +21,7 @@
     &__list {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px 24px;
+      gap: 24px;
       margin-bottom: 24px;
     }
 
@@ -46,13 +49,13 @@
 }
 
 @media (width >= 1440px) {
-  .brands {
+  .types {
     &__inner {
       padding: 0 32px 50px;
     }
 
     &__list {
-      gap: 16px 32px;
+      gap: 32px;
     }
 
     &__item {

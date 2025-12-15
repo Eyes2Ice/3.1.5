@@ -1,10 +1,10 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-.brands {
+.types {
   &__inner {
     padding: 0 0 24px 16px;
-    border-top: 1px solid $color-border-green-light;
+    border-top: 1px solid #d9fff5;
   }
 
   &__title {
@@ -34,30 +34,6 @@
     }
   }
 
-  &__link {
-    @include flex-between;
-    height: 72px;
-    padding: 16px;
-    background-color: $color-bg-white;
-    border: 1px solid $color-border-light;
-    border-radius: 6px;
-    @include transition;
-
-    svg {
-      @include transition;
-    }
-
-    &:hover,
-    &:focus {
-      border: 1px solid $color-accent;
-      box-shadow: inset 0px 0px 10px 0px $color-shadow-accent;
-
-      svg {
-        transform: scale(1.1);
-      }
-    }
-  }
-
   &__btn {
     display: none;
     font-size: 16px;
@@ -81,7 +57,38 @@
   }
 }
 
-.brands__slider {
+.type {
+  &__link {
+    @include column-between;
+    height: 160px;
+    padding: 16px;
+    background-color: $color-bg-white;
+    border: 1px solid $color-border-light;
+    border-radius: 6px;
+    @include transition;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $color-accent;
+      box-shadow: inset 0px 0px 10px 0px $color-shadow-accent;
+
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__title {
+    @include text-common;
+  }
+
+  svg {
+    align-self: flex-end;
+    @include transition;
+  }
+}
+
+.types__slider {
   .swiper-pagination {
     position: static;
     margin-top: 16px;

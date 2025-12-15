@@ -1,15 +1,17 @@
-@import 'swiper/css/bundle';
+@use 'swiper/css/bundle';
 
-@import 'base/reset';
-@import 'base/fonts';
-@import 'base/global';
-@import 'base/global-media';
+@use 'base/reset' as *;
+@use 'base/fonts' as *;
+@use 'base/global' as *;
+@use 'base/global-media' as *;
 
-@import 'components/header';
-@import 'components/header-media';
-@import 'components/aside';
-@import 'components/aside-media';
-@import 'components/services';
-@import 'components/services-media';
-@import 'components/brands';
-@import 'components/brands-media';
+@use 'components/header' as *;
+@use 'components/header-media' as *;
+@use 'components/aside' as *;
+@use 'components/aside-media' as *;
+@use 'components/services' as *;
+@use 'components/services-media' as *;
+@use 'components/brands' as *;
+@use 'components/brands-media' as *;
+@use 'components/types' as *;
+@use 'components/types-media' as *;
