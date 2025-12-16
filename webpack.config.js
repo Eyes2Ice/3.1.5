@@ -149,11 +149,17 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][hash][ext]'
+        }
       },
       {
         test: /\.(ttf|woff|woff2)$/,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][hash][ext]'
+        }
       },
       {
         test: /\.xml$/,

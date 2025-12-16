@@ -79,7 +79,10 @@
         <div class="header__actions">
           <nav class="header-nav" aria-label="Навигация шапки">
             <li class="button-call header-nav__item header-nav__item--tablet">
-              <button class="header-nav__btn" aria-label="Заказать звонок">
+              <button
+                class="button-call header-nav__btn"
+                aria-label="Заказать звонок"
+              >
                 <img src="./assets/img/icons/call.svg" alt="" />
               </button>
             </li>
@@ -1320,7 +1323,7 @@
         <button
           class="message__close"
           aria-label="Закрыть модальное окно с формой обратной связи"
-          aria-expanded="false"
+          aria-expanded="true"
         >
           <img src="./assets/img/icons/burger-close.svg" alt="" />
         </button>
@@ -1351,6 +1354,36 @@
               required
               placeholder="Сообщение"
             ></textarea>
+          </label>
+          <p class="form__privacy"
+            >Нажимая “отправить”, вы даете согласие на
+            <a href="#">обработку персональных данных</a> и соглашаетесь с нашей
+            <a href="#">политикой конфиденциальности</a></p
+          >
+          <button class="form__btn" type="submit"
+            >Отправить <img src="./assets/img/icons/goside.svg" alt=""
+          /></button>
+        </form>
+      </div>
+    </div>
+    <div class="call">
+      <div class="call__inner">
+        <button
+          class="call__close"
+          aria-label="Закрыть модальное окно с заказом звонка"
+          aria-expanded="true"
+        >
+          <img src="./assets/img/icons/burger-close.svg" alt="" />
+        </button>
+        <h3 class="call__title">Заказать звонок</h3>
+        <form class="form call__form">
+          <label>
+            <input
+              class="form__input"
+              type="tel"
+              required
+              placeholder="Телефон"
+            />
           </label>
           <p class="form__privacy"
             >Нажимая “отправить”, вы даете согласие на

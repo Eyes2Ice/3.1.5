@@ -4,6 +4,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import Inputmask from 'inputmask'
 
+const optionalBreakpoint = window.matchMedia('(max-width: 1120px)')
 const tabletBreakpoint = window.matchMedia(
   '(min-width: 768px) and (max-width: 1439px)'
 )
@@ -47,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     asideActions.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation()
-        closeSidebar()
+        if (optionalBreakpoint.matches) {
+          closeSidebar()
+        }
       })
     })
 
@@ -292,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     im.mask(inputsTel)
   }
 
+  // Модалки
   // Модалка с формой
   {
     const message = document.querySelector('.message')
@@ -300,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageSend = message.querySelector('.form__btn')
 
     function openMessage() {
+      closeCall()
       message.classList.add('message--visible')
       content.classList.add('main__content--blured')
       header.classList.add('header--blured')
@@ -337,6 +342,54 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', () => {
       if (message.classList.contains('message--visible')) {
         closeMessage()
+      }
+    })
+
+    // Модалка с номером
+    const Call = document.querySelector('.call')
+    const callOpen = document.querySelectorAll('.button-call')
+    const callClose = Call.querySelector('.call__close')
+    const callSend = Call.querySelector('.form__btn')
+
+    function openCall() {
+      closeMessage()
+      Call.classList.add('call--visible')
+      content.classList.add('main__content--blured')
+      header.classList.add('header--blured')
+      body.classList.add('body--event')
+    }
+
+    function closeCall() {
+      Call.classList.remove('call--visible')
+      content.classList.remove('main__content--blured')
+      header.classList.remove('header--blured')
+      body.classList.remove('body--event')
+    }
+
+    callOpen.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        openCall()
+      })
+    })
+
+    callClose.addEventListener('click', (e) => {
+      e.stopPropagation()
+      closeCall()
+    })
+
+    callSend.addEventListener('click', (e) => {
+      e.stopPropagation()
+      closeCall()
+    })
+
+    Call.addEventListener('click', (e) => {
+      e.stopPropagation()
+    })
+
+    document.addEventListener('click', () => {
+      if (Call.classList.contains('call--visible')) {
+        closeCall()
       }
     })
   }

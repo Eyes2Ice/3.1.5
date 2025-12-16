@@ -1,0 +1,53 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.call {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+  z-index: 1;
+  width: 320px;
+  height: 676px;
+  background-color: $color-bg-white;
+
+  &--visible {
+    display: block;
+  }
+
+  &__inner {
+    padding: 24px 16px 0 16px;
+  }
+
+  &__close {
+    margin-bottom: 32px;
+    @include transition;
+    @include scale-hover;
+  }
+
+  &__title {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.33;
+    letter-spacing: -0.03em;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 40px;
+      margin-left: -16px;
+      background-image: url('../assets/img/icons/highlight.svg');
+    }
+  }
+
+  &__form {
+    button {
+      margin-top: 2px;
+    }
+  }
+}

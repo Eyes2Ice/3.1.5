@@ -9,6 +9,11 @@
   z-index: 1;
   width: 320px;
   background-color: $color-bg-white;
+
+  &--visible {
+    display: block;
+  }
+
   &__inner {
     padding: 24px 16px 75px;
   }
@@ -37,10 +42,6 @@
       margin-left: -16px;
       background-image: url('../assets/img/icons/highlight.svg');
     }
-  }
-
-  &--visible {
-    display: block;
   }
 }
 
