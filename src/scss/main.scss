@@ -7,6 +7,7 @@
 
 @use 'components/header' as *;
 @use 'components/header-media' as *;
+
 @use 'components/aside' as *;
 @use 'components/aside-media' as *;
 @use 'components/services' as *;
@@ -17,3 +18,9 @@
 @use 'components/types-media' as *;
 @use 'components/prices' as *;
 @use 'components/prices-media' as *;
+
+@use 'components/footer' as *;
+@use 'components/footer-media' as *;
+
+@use 'components/message' as *;
+@use 'components/message-media' as *;

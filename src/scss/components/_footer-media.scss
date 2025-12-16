@@ -1,0 +1,53 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+@media (width >= 768px) {
+  .footer {
+    &__inner {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+      padding: 32px 24px 25px;
+      text-align: start;
+
+      p {
+        opacity: 0.72;
+      }
+    }
+
+    &__development {
+      margin-right: 35px;
+    }
+
+    &__privacy {
+      margin-right: 40px;
+
+      a {
+        @include transition;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $color-accent;
+        }
+      }
+    }
+
+    &__offer {
+      max-width: 213px;
+      text-align: end;
+    }
+  }
+}
+
+@media (width >= 1120px) {
+  .footer {
+    &__inner {
+      margin-left: 320px;
+    }
+
+    &__offer {
+      max-width: 330px;
+    }
+  }
+}

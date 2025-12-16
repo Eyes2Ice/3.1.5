@@ -1,0 +1,35 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+@media (width >= 1120px) {
+  .message {
+    width: 440px;
+    height: 100vh;
+    box-shadow: 16px 0 52px 0 rgba(14, 24, 80, 0.2),
+      -2px 0 4px 0 rgba(69, 79, 126, 0.02);
+
+    &__inner {
+      padding: 32px 32px 0 32px;
+    }
+
+    &__close {
+      position: absolute;
+      top: 32px;
+      left: -64px;
+    }
+
+    &__title {
+      gap: 30px;
+
+      &::before {
+        margin-left: -32px;
+      }
+    }
+  }
+
+  .form {
+    &__btn {
+      margin-top: 7px;
+    }
+  }
+}

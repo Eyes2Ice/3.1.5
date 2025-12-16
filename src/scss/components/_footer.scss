@@ -1,0 +1,16 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+  &__inner {
+    @include flex-column;
+    gap: 16px;
+    padding: 16px 4px 19px;
+    border-top: 1px solid $color-border-green-light;
+
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    color: $color-text-secondary;
+  }
+}

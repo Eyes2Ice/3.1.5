@@ -2,20 +2,22 @@ import Swiper from 'swiper'
 import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import Inputmask from 'inputmask'
 
 const tabletBreakpoint = window.matchMedia(
   '(min-width: 768px) and (max-width: 1439px)'
 )
 const desktopBreakpoint = window.matchMedia('(min-width: 1440px)')
+const content = document.querySelector('.main__content')
+const header = document.querySelector('.header')
+const body = document.body
 
 document.addEventListener('DOMContentLoaded', () => {
   // Сайдбар
   {
     const burgers = document.querySelectorAll('.burger-icon')
     const aside = document.querySelector('aside.main__aside')
-    const content = document.querySelector('.main__content')
-    const header = document.querySelector('.header')
-    const body = document.body
+    const asideActions = aside.querySelectorAll('.aside-actions__btn')
 
     function toggleSidebar() {
       aside.classList.toggle('aside--visible')
@@ -40,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     aside.addEventListener('click', (e) => {
       e.stopPropagation()
+    })
+
+    asideActions.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        closeSidebar()
+      })
     })
 
     document.addEventListener('click', () => {
@@ -254,23 +263,81 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Сдайдер цены
-  new Swiper('.prices__slider', {
-    slidesPerView: 'auto',
-    spaceBetween: 16,
+  {
+    new Swiper('.prices__slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
 
-    modules: [Pagination, Autoplay],
+      modules: [Pagination, Autoplay],
 
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
 
-    autoplay: {
-      delay: 2000
-    },
+      autoplay: {
+        delay: 2000
+      },
 
-    speed: 600,
+      speed: 600,
 
-    pauseOnInteraction: true
-  })
+      pauseOnInteraction: true
+    })
+  }
+
+  // Маска для инпута под номер телефона
+  {
+    const inputsTel = document.querySelectorAll('input[type="tel"]')
+    let im = new Inputmask('+7 (999) 999-99-99')
+    im.mask(inputsTel)
+  }
+
+  // Модалка с формой
+  {
+    const message = document.querySelector('.message')
+    const messageOpen = document.querySelectorAll('.button-message')
+    const messageClose = message.querySelector('.message__close')
+    const messageSend = message.querySelector('.form__btn')
+
+    function openMessage() {
+      message.classList.add('message--visible')
+      content.classList.add('main__content--blured')
+      header.classList.add('header--blured')
+      body.classList.add('body--event')
+    }
+
+    function closeMessage() {
+      message.classList.remove('message--visible')
+      content.classList.remove('main__content--blured')
+      header.classList.remove('header--blured')
+      body.classList.remove('body--event')
+    }
+
+    messageOpen.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        openMessage()
+      })
+    })
+
+    messageClose.addEventListener('click', (e) => {
+      e.stopPropagation()
+      closeMessage()
+    })
+
+    messageSend.addEventListener('click', (e) => {
+      e.stopPropagation()
+      closeMessage()
+    })
+
+    message.addEventListener('click', (e) => {
+      e.stopPropagation()
+    })
+
+    document.addEventListener('click', () => {
+      if (message.classList.contains('message--visible')) {
+        closeMessage()
+      }
+    })
+  }
 })

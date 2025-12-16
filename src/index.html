@@ -78,13 +78,18 @@
         </div>
         <div class="header__actions">
           <nav class="header-nav" aria-label="Навигация шапки">
-            <li class="header-nav__item header-nav__item--tablet">
-              <button class="header-nav__btn" aria-label="Позвонить">
+            <li class="button-call header-nav__item header-nav__item--tablet">
+              <button class="header-nav__btn" aria-label="Заказать звонок">
                 <img src="./assets/img/icons/call.svg" alt="" />
               </button>
             </li>
-            <li class="header-nav__item header-nav__item--tablet">
-              <button class="header-nav__btn" aria-label="Написать в чат">
+            <li
+              class="button-message header-nav__item header-nav__item--tablet"
+            >
+              <button
+                class="button-message header-nav__btn"
+                aria-label="Отправить обратную связь"
+              >
                 <img src="./assets/img/icons/chat.svg" alt="" />
               </button>
             </li>
@@ -215,14 +220,17 @@
             <div class="aside__contacts">
               <ul class="aside-actions">
                 <li class="aside-actions__item">
-                  <button class="aside-actions__btn" aria-label="Позвонить">
+                  <button
+                    class="button-call aside-actions__btn"
+                    aria-label="Заказать звонок"
+                  >
                     <img src="./assets/img/icons/call.svg" alt="" />
                   </button>
                 </li>
                 <li class="aside-actions__item">
                   <button
-                    class="aside-actions__btn"
-                    aria-label="Написать в чат"
+                    class="button-message aside-actions__btn"
+                    aria-label="Отправить обратную связь"
                   >
                     <img src="./assets/img/icons/chat.svg" alt="" />
                   </button>
@@ -1214,7 +1222,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="table__row table__row--first">
+                    <tr>
                       <td class="table__service">Диагностика</td>
                       <td class="table__price">Бесплатно</td>
                       <td class="table__term">30 мин</td>
@@ -1292,5 +1300,68 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <div class="footer__inner">
+        <p class="footer__development"
+          >© 2019 CPS <br />
+          Разработано командой Apesong
+        </p>
+        <p class="footer__privacy"
+          ><a href="#">Политика конфиденциальности</a>
+        </p>
+        <p class="footer__offer">
+          Информация, размещенная на данной странице, не является публичной
+          офертой
+        </p>
+      </div>
+    </footer>
+    <div class="message">
+      <div class="message__inner">
+        <button
+          class="message__close"
+          aria-label="Закрыть модальное окно с формой обратной связи"
+          aria-expanded="false"
+        >
+          <img src="./assets/img/icons/burger-close.svg" alt="" />
+        </button>
+        <h3 class="message__title">Обратная связь</h3>
+        <form class="form message__form">
+          <label>
+            <input class="form__input" type="text" required placeholder="Имя" />
+          </label>
+          <label>
+            <input
+              class="form__input"
+              type="tel"
+              required
+              placeholder="Телефон"
+            />
+          </label>
+          <label>
+            <input
+              class="form__input"
+              type="email"
+              required
+              placeholder="Электронная почта"
+            />
+          </label>
+          <label>
+            <textarea
+              class="form__textarea"
+              required
+              placeholder="Сообщение"
+            ></textarea>
+          </label>
+          <p class="form__privacy"
+            >Нажимая “отправить”, вы даете согласие на
+            <a href="#">обработку персональных данных</a> и соглашаетесь с нашей
+            <a href="#">политикой конфиденциальности</a></p
+          >
+          <button class="form__btn" type="submit"
+            >Отправить <img src="./assets/img/icons/goside.svg" alt=""
+          /></button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
